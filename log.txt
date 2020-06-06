@@ -1,0 +1,3 @@
+[2020-6-5 19:50:48] [INFO] Sqlite is Open!
+[2020-6-5 19:50:48] [INFO] initgraph
+[2020-6-5 19:50:48] [INFO] initloginwindow
