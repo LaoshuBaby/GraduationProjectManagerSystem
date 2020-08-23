@@ -59,11 +59,21 @@
 
 **安全性考虑：**
 
-在登陆过程中对于是否为管理员采用的是预先与储存好的匹配而不是直接进行查询语句，避免了在用户登录过程中被SQL注入的风险，如admin'#这样的常见SQL注入点被避免。
+在登陆过程中对于是否为管理员采用的是预先与储存好的匹配而不是直接进行查询语句，避免了在用户登录过程中被SQL注入的风险，如```admin'#```这样的常见SQL注入点被避免。
 
-而诸如''or 1=1#或username' AND 1=1—hack这样的注入方式，或者更为恶劣的username;DROP TABLE user—hack的攻击，采用对请求的字符串预处理的形式，过滤其中可提供多语句执行的;和=两个常见字符，在尽可能减少对用户自由性损失的同时，防范SQL注入的攻击。
+而诸如```''or 1=1#```或```username' AND 1=1—hack```这样的注入方式，或者更为恶劣的```username;DROP TABLE user—hack```的攻击，采用对请求的字符串预处理的形式，过滤其中可提供多语句执行的;和=两个常见字符，在尽可能减少对用户自由性损失的同时，防范SQL注入的攻击。
 
 非常遗憾因为时间关系，密码没能采用加盐后HASH，然后将HASH后数据进行比对的较为安全的方式进行处理，而是直接将明文送入查询。
+
+**下一步计划：**
+
+1.采用EasyX提供的图片保存功能，提供一个生成毕业证图片的页面，在完成所有阶段后能输出一张含有所有信息的图片，算是对测试者的奖赏
+
+2.若进展顺利并学习难度不大，可能考虑用guilite重写整个图形部分
+
+3.将本系统中的时间戳生成结合WinAPI提供的时间系统，打包为```LaoShuBaby-LogSystem```
+
+4.将本系统中C++/EasyX与Sqlite成功链接的部分单独分离为一个库，方便不想在配置环境上浪费时间的开发者直接打开即用。
 
 
 =====================ZH_CN===================
@@ -124,11 +134,12 @@ The fifth stage is a successful graduation.
 
 **Security considerations:**
 
-During the login process, whether to use the stored match in advance for the administrator instead of directly querying the query avoids the risk of SQL injection during the user login process. Common SQL injection points such as admin'# are avoided .
+During the login process, whether to use the stored match in advance for the administrator instead of directly querying the query avoids the risk of SQL injection during the user login process. Common SQL injection points such as ```admin'#``` are avoided .
 
-Injecting methods such as'or 1=1# or username' AND 1=1—hack, or the worse username; DROP TABLE user-hack attacks, use the form of preprocessing the requested string, filtering Which can provide multi-statement execution; and = two common characters, while reducing the loss of user freedom as much as possible, while preventing SQL injection attacks.
+Injecting methods such as```''or 1=1#``` or ```username' AND 1=1—hack```, or the worse```username;DROP TABLE user—hack```attacks, use the form of preprocessing the requested string, filtering Which can provide multi-statement execution; and = two common characters, while reducing the loss of user freedom as much as possible, while preventing SQL injection attacks.
 
 Unfortunately, due to time constraints, the password failed to use HASH after salting, and then the post-HASH data was processed in a more secure way, but the plain text was directly sent to the query.
 
+Translation needed update. Using en_UK not en_US to show the against of USA.
 
 =====================EN_UK===================
